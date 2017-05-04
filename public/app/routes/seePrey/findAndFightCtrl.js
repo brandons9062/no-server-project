@@ -1,36 +1,15 @@
 angular.module('myApp')
     .controller('findAndFightCtrl', function ($scope, pokemonService) {
 
-    $scope.pokemonInfo = [];
-    
-$scope.getPokemon = function(){
-        for(var i = 0; i < 50; i++){
-            pokemonService.getPokemonInfo(Math.floor((Math.random() * 600)+1))
-            .then(function(response){
-                
-                response.data.level = Math.floor((Math.random() * 50)+1);
-                
-                response.data.attackPower = Math.floor(Math.random() * ((response.data.level - (response.data.level-(response.data.level/3)))+1)+(response.data.level-(response.data.level/3)));
-                
-                response.data.health = response.data.stats[5].base_stat * (response.data.level/10)+1;
-                
-                response.data.index = i;
-                
-                $scope.pokemonInfo.push(response.data);
-                console.log($scope.pokemonInfo);
-            })
-        }
-    
-}
-$scope.getPokemon();
+    $scope.pokemonInfo = pokemonService.pokemonInfo;
     
 var Fighter = function(name){
         this.name = name;
         this.level = 1;
         this.experience = 0;
         this.experienceNeeded = 500;
-        this.fullHealth = 40;
-        this.health = 40;
+        this.fullHealth = 20;
+        this.health = 20;
         this.won = false;
         this.lost = false;
         this.attackPower = 10;
@@ -59,9 +38,18 @@ var Fighter = function(name){
         };
     
 };
+    $scope.goToSeePrey = '/';
+    $scope.createFighter = function (name){
+        if(name){
+        $scope.fighter = new Fighter(name);
+        pokemonService.getPokemon($scope.fighter.level);            $scope.goToSeePrey = "seePrey";
+        }
+        else {
+            alert("GIVE YOUR HUNTER A NAME YA SLOWPOKE!");
+        }
+        }
     
-    $scope.testFighter = new Fighter('Brandon');
-    console.log($scope.testFighter);
+    
     
     
     

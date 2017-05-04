@@ -1,12 +1,14 @@
-<div>
+<div class="homeBody">
 
-    <div>
-        <h1>Create Your Hunter!</h1>
-    </div>
-    
-    <div>
-        <h1>What is Your Hunter's Name?</h1>
-        <input type="text" placeholder="Name" />
-    </div>
+    <div class="homeMainContainer">
+        <div class="homeHeaderContainer">
+            <div class="homeHeaderText">Create Your Hunter!</div>
+        </div>
 
+        <div class="homeHunterCreatorDiv">
+            <div class="homeHunterNameHeaderText">What is Your Hunter's Name?</div>
+            <input type="text" placeholder="Name" ng-model="fighterName" />
+            <button class="homeCreateHunterButton" ng-click="createFighter(fighterName)" ui-sref="{{goToSeePrey}}">Create Hunter</button>
+        </div>
+    </div>
 </div>

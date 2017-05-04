@@ -1,7 +1,7 @@
-angular.module('myApp', ['ui-router'])
+angular.module('myApp', ['ui.router'])
     .config(function($stateProvider, $urlRouterProvider){
     
-        $urlRouterProvider.when('', '/');
+        
     
         $stateProvider
             .state('home', {
@@ -11,8 +11,14 @@ angular.module('myApp', ['ui-router'])
         })
             .state('seePrey', {
                 url: '/seePrey',
-                templateUrl: './app/routes/seePrey/seePreyTempl.html',
-                controller: 'findAndFightCtrl'
+                templateUrl: './app/routes/seePrey/seePreyTmpl.html',
+                controller: 'seePreyCtrl'
         })
+            .state('hunt', {
+                url:'/hunt',
+                templateUrl: '.app/routes/hunt/huntTmpl.html',
+                controller: 'huntCtrl'
+        })
+        $urlRouterProvider.otherwise('/');
     
 })

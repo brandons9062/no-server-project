@@ -2,13 +2,13 @@
 
     <div class="homeMainContainer">
         <div class="homeHeaderContainer">
-            <div class="homeHeaderText">Create Your Hunter!</div>
+            <div class="homeHeaderText">Start a New Game!</div>
         </div>
 
         <div class="homeHunterCreatorDiv">
             <div class="homeHunterNameHeaderText">What is Your Hunter's Name?</div>
-            <input type="text" placeholder="Name" ng-model="fighterName" />
-            <button class="homeCreateHunterButton" ng-click="createFighter(fighterName)" ui-sref="{{goToSeePrey}}">Create Hunter</button>
+            <input class="homeNewHunterInput" type="text" placeholder="Name" ng-model="fighterName" />
+            <img ng-src="http://www.pokemon3d.net/wiki/images/6/6f/New_game_Button.png" class="homeCreateHunterButton" ng-click="createFighter(fighterName)" ui-sref="hunt"/img>
         </div>
     </div>
 </div>

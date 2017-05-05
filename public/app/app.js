@@ -16,7 +16,7 @@ angular.module('myApp', ['ui.router'])
         })
             .state('hunt', {
                 url:'/hunt',
-                templateUrl: '.app/routes/hunt/huntTmpl.html',
+                templateUrl: './app/routes/hunt/huntTmpl.html',
                 controller: 'huntCtrl'
         })
         $urlRouterProvider.otherwise('/');
